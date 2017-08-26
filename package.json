@@ -1,5 +1,5 @@
 {
-  "name": "modal-tunnel",
+  "name": "react-webpack-starter",
   "version": "0.1.0",
   "description": "solution for modal managent under Redux",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Leetsong/modal-tunnel.git"
+    "url": "git+https://github.com/Leetsong/react-webpack-starter.git"
   },
   "keywords": [
     "modal",
@@ -18,9 +18,9 @@
   "author": "Leetsong",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Leetsong/modal-tunnel/issues"
+    "url": "https://github.com/Leetsong/react-webpack-starter/issues"
   },
-  "homepage": "https://github.com/Leetsong/modal-tunnel#readme",
+  "homepage": "https://github.com/Leetsong/react-webpack-starter#readme",
   "dependencies": {
     "antd": "^2.12.7",
     "prop-types": "^15.5.10",

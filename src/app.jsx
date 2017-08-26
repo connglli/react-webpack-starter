@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './index.scss';
+import './index.scss';
 
 class App extends Component {
   state = {
@@ -15,8 +15,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <span className={styles.hhhhh1}>Hello, Global</span>
-        <h2 className="hhhhh2">Hello, 0</h2>
+        <h2>Hello, enjoy it</h2>
         <input value={this.state.input} type="text" onChange={this.onInputChange} />
       </div>
     );
