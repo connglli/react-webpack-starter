@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <div>
         <span className={styles.hhhhh1}>Hello, Global</span>
-        <h2 className="hhhhh2">Hello, Local</h2>
+        <h2 className="hhhhh2">Hello, 0</h2>
         <input value={this.state.input} type="text" onChange={this.onInputChange} />
       </div>
     );
