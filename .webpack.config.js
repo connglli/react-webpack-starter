@@ -2,10 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 
 const devServer = {
-  contentBase: path.join(__dirname, 'build'), // 静态文件 (如 index.html) 的地址
-  // open: true, // 启动 dev server 时打开浏览器
-  // publicPath: path.join(__dirname) // index.html 中引用文件 (如 bundle.js) 的地址
-  // inline: true, // inline 自动刷新模式，默认开启，改为 false 将启用 iframe 模式，使用 HMR 建议使用 inline 模式
+  contentBase: path.join(__dirname, 'build'), // URL of static files e.g. index.html
+  // open: true, // open browser when start dev server
+  // publicPath: path.join(__dirname) // URL of refed files e.g. bundle.js of index.html
+  // inline: true, // autorefresh mode: inline，open by default，mode iframe will be open when set to false，inline is recommended when use HMR
 };
 
 module.exports = {
@@ -19,8 +19,22 @@ module.exports = {
     filename: 'index.js',
     path: path.resolve(__dirname, 'build')
   },
+  resolve: {
+    extensions: [ '.js', '.jsx', '.json' ]
+  },
   module: {
     rules: [
+      {
+        enforce: "pre",
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,        
+        use: {
+          loader: 'eslint-loader',
+          options: {
+            cache: true // allow eslint to cache its temp result into node_modules/.cache
+          }
+        }
+      },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
