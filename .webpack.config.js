@@ -1,9 +1,17 @@
 const path = require('path');
 const webpack = require('webpack');
 
+const devServer = {
+  contentBase: path.join(__dirname, 'build'), // 静态文件 (如 index.html) 的地址
+  // open: true, // 启动 dev server 时打开浏览器
+  // publicPath: path.join(__dirname) // index.html 中引用文件 (如 bundle.js) 的地址
+  // inline: true, // inline 自动刷新模式，默认开启，改为 false 将启用 iframe 模式，使用 HMR 建议使用 inline 模式
+};
+
 module.exports = {
   devtool: 'inline-source-map', // source map
-  entry: './src/index.js',
+  devServer: devServer,
+  entry: path.join(__dirname, 'src/index.js'),
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'build')

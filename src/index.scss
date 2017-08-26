@@ -1,15 +1,15 @@
-$primary-color: #000;
+$primary-color: #ff212f;
 
 body {
   background: $primary-color;
 }
 
 .hhhhh1 {
-  background: yellow;
+  background: hsl(240, 100%, 50%);
   color: white;
 }
 
 :global .hhhhh2 {
-  background: red;
-  color: white;
+  background: yellow;
+  color: red;
 }
