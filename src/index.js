@@ -1,17 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styles from './index.scss';
+import { AppContainer } from 'react-hot-loader';
 
-const App = () => (<div>
-  <span className={styles.hhhhh1}>Hello, Global</span>
-  <h2 className='hhhhh2'>Hello, Local</h2>
-</div>);
+import App from './app.jsx';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+const rootEl = document.getElementById('root');
 
+// react-hot-loader support, wrap it in AppContainer
+const render = (Component, el) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    el
+  );
+};
+
+render(App, rootEl);
+
+// HMR support
 if (module.hot) {
-  module.hot.accept();
+  module.hot.accept('./app.jsx', () => {
+    render(App, rootEl);
+  });
 }
