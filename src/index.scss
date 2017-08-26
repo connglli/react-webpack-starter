@@ -1,0 +1,15 @@
+$primary-color: #000;
+
+body {
+  background: $primary-color;
+}
+
+.hhhhh1 {
+  background: yellow;
+  color: white;
+}
+
+:global .hhhhh2 {
+  background: red;
+  color: white;
+}
