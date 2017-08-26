@@ -1,5 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+
+// we create html by the template file
+const htmlPlugin = new HtmlWebpackPlugin({
+  title: 'modal tunnel',
+  filename: 'index.html',
+  template: path.join(__dirname, 'src/index.html.tpl')
+});
+// we extract all styles to index.css
+const cssPlugin = new ExtractTextWebpackPlugin('index.css');
 
 const devServer = {
   contentBase: path.join(__dirname, 'build'), // URL of static files e.g. index.html
@@ -19,6 +30,7 @@ module.exports = {
     filename: 'index.js',
     path: path.resolve(__dirname, 'build')
   },
+  plugins: [ htmlPlugin, cssPlugin ],
   resolve: {
     extensions: [ '.js', '.jsx', '.json' ]
   },
@@ -52,31 +64,20 @@ module.exports = {
         ]
       },
       {
-        test: /\.(sass|scss)$/,
+        test: /\.(css|sass|scss)$/,
         exclude: /node_modules/,
-        use: [
-          { loader: 'style-loader' },
-          { 
-            loader: 'css-loader',
-            options: {
-              module: true
-            }
-          },
-          { loader: 'sass-loader' }
-        ]
-      },
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: [
-          { loader: 'style-loader' },
-          { 
-            loader: 'css-loader',
-            options: {
-              module: true
-            }
-          }
-        ]
+        use: cssPlugin.extract({
+          fallback: { loader: 'style-loader' },
+          use: [
+            { 
+              loader: 'css-loader',
+              options: {
+                module: true
+              }
+            },
+            { loader: 'sass-loader' }
+          ]
+        })
       }
     ]
   }
