@@ -63,7 +63,7 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               presets: [ ['es2015', { modules: false }], 'react' ],
-              plugins: [ 'transform-async-to-generator', 'transform-class-properties', 'react-hot-loader/babel' ]
+              plugins: [ 'transform-async-to-generator', 'transform-class-properties', 'react-hot-loader/babel', 'transform-object-rest-spread' ]
             }
           }
         ]

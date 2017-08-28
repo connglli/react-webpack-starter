@@ -21,6 +21,7 @@ npm run build      build it
 
 + ES6
 + ES7 `async`/`await`
++ stage 3 Object spread/rest operator
 + stage 2 Class Fields
 + CSS Modules with SASS
 + HMR react-hot-loader
