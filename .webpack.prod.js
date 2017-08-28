@@ -64,8 +64,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(css|sass|scss)$/,
-        exclude: /node_modules/,
+        test: /\.(sass|scss)$/,
         use: cssPlugin.extract({
           fallback: { loader: 'style-loader' },
           use: [
@@ -78,6 +77,77 @@ module.exports = {
             { loader: 'sass-loader' }
           ]
         })
+      },
+      {
+        // we won't use origin css, so we close css module here,
+        // or you can split them by test:
+        // test(filePath) {
+        //   return !/node_modules/.test(filePath) && !/\.(css|scss|sass)$/.test(filePath)
+        // }
+        test: /\.css$/,
+        use: cssPlugin.extract({
+          fallback: { loader: 'style-loader' },
+          use: 'css-loader'
+        })
+      },
+      {
+        test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+        use: {
+          loader: `url-loader'`,
+          options: {
+            limit: 10000,
+            minetype: 'application/font-woff'
+          }
+        },
+      },
+      {
+        test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            minetype: 'application/font-woff'
+          }
+        }
+      },
+      {
+        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            minetype: 'application/octet-stream'
+          }
+        }
+      },
+      {
+        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            minetype: 'application/vnd.ms-fontobject'
+          }
+        }
+      },
+      {
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            minetype: 'image/svg+xml'
+          }
+        }
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif)(\?v=\d+\.\d+\.\d+)?$/i,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000
+          }
+        }
       }
     ]
   }
