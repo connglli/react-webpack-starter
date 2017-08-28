@@ -24,7 +24,10 @@ const cleanPlugin = new CleanWebpackPlgin(['build']);
 
 module.exports = {
   devtool: 'source-map', // source map
-  entry: path.join(__dirname, 'src/index.js'),
+  entry: [
+    'babel-polyfill',
+    path.join(__dirname, 'src/index.js')
+  ],
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'build')
@@ -42,7 +45,8 @@ module.exports = {
         use: {
           loader: 'eslint-loader',
           options: {
-            cache: true // allow eslint to cache its temp result into node_modules/.cache
+            cache: true, // allow eslint to cache its temp result into node_modules/.cache
+            configFile: path.join(__dirname, '.eslintrc.json')
           }
         }
       },

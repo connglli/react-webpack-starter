@@ -28,6 +28,7 @@ module.exports = {
   devtool: 'cheap-module-eval-source-map', // source map
   devServer: devServer,
   entry: [
+    'babel-polyfill',
     'react-hot-loader/patch',
     path.join(__dirname, 'src/index.js')
   ],
@@ -48,7 +49,8 @@ module.exports = {
         use: {
           loader: 'eslint-loader',
           options: {
-            cache: true // allow eslint to cache its temp result into node_modules/.cache
+            cache: true, // allow eslint to cache its temp result into node_modules/.cache
+            configFile: path.join(__dirname, '.eslintrc.json')
           }
         }
       },

@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Leetsong/react-webpack-starter#readme",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
