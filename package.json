@@ -1,7 +1,7 @@
 {
   "name": "react-webpack-starter",
   "version": "0.1.0",
-  "description": "solution for modal managent under Redux",
+  "description": "quick starter for react and webpack",
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/webpack --config .webpack.config.js",
