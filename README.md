@@ -2,13 +2,17 @@
 
 > a simple react webpack clean quick starter, react only react
 
-## use it
+## usage
 
-#### download
+#### download it
 
 ```
 git clone https://github.com/Leetsong/react-webpack-starter.git
 ```
+
+#### customize it
+
+modify `package.json` and make it to fit your project, you need to modify `name`, `description`, `repository`, `author`, `bugs`, `homepage` and many others that is not suitable to your project.
 
 #### use it
 
@@ -19,13 +23,13 @@ npm run build      build it
 
 ## features
 
-+ ES6
-+ ES7 `async`/`await`
-+ stage 3 Object spread/rest operator
-+ stage 2 Class Fields
-+ CSS Modules with SASS
-+ HMR react-hot-loader
-+ ESLint babel-eslint
++ es6
++ es7 `async`/`await`
++ stage 3 object spread/rest operator
++ stage 2 class fields
++ css Modules with sass
++ hmr react-hot-loader
++ eslint babel-eslint
 + dev & prod
 
 ## todo
